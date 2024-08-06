@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MdOutlineHome, MdOutlineSearch } from "react-icons/md";
+import { HomeIcon, SearchIcon } from "./icons/Icons";
 
 const links = [
-  { text: "Home", href: "/", icon: <MdOutlineHome /> },
-  { text: "Search", href: "/search", icon: <MdOutlineSearch /> },
+  { text: "Home", href: "/", icon: HomeIcon },
+  {
+    text: "Search",
+    href: "/search",
+    icon: SearchIcon,
+  },
 ] as const;
 
 const Sidebar = () => {
@@ -23,13 +27,15 @@ const Sidebar = () => {
             <li key={link.text} className="p-3">
               <Link
                 href={link.href}
-                className={`flex items-center gap-5 hover:text-primary-text transition duration-300 ${
+                className={`flex items-center gap-5 hover:text-primary-text hover:fill-primary-text  transition duration-300 ${
                   currentPath === link.href
-                    ? "text-primary-text"
-                    : "text-secondary-text"
+                    ? "text-primary-text fill-primary-text"
+                    : "text-secondary-text fill-secondary-text"
                 }`}
               >
-                <span className="text-2xl">{link.icon}</span>
+                <span className={`text-3xl`}>
+                  <link.icon width={24} />
+                </span>
                 <span className="text-[15px] font-semibold tracking-tight">
                   {link.text}
                 </span>
