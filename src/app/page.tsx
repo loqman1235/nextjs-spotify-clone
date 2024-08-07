@@ -2,9 +2,11 @@ import Sidebar from "@/components/Sidebar";
 
 const Home = () => {
   return (
-    <div className="w-full h-screen p-2 flex gap-2">
+    <div className="w-full h-screen p-2 flex">
       <Sidebar />
-      <div className="flex-grow">Main Area</div>
+      {/* resizer */}
+      <div className="w-[1px] h-full cursor-grab px-1"></div>
+      <div className="flex-grow bg-foreground rounded-md">Main Area</div>
     </div>
   );
 };
