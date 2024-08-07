@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HomeIcon, SearchIcon } from "@/components/icons";
+import { HomeIcon, LibraryIcon, SearchIcon } from "@/components/icons";
+import { GoArrowRight, GoPlus } from "react-icons/go";
 
 const links = [
-  { text: "Home", href: "/", icon: HomeIcon },
+  { text: "home", href: "/", icon: HomeIcon },
   {
-    text: "Search",
+    text: "search",
     href: "/search",
     icon: SearchIcon,
   },
@@ -34,7 +35,7 @@ const Sidebar = () => {
                 <span className={`text-3xl`}>
                   <link.icon width={24} height={24} />
                 </span>
-                <span className="text-[15px] font-semibold tracking-tight">
+                <span className="capitalize text-[15px] font-semibold tracking-tight">
                   {link.text}
                 </span>
               </Link>
@@ -43,7 +44,42 @@ const Sidebar = () => {
         </ul>
       </div>
       {/* SIDEBAR BOTTOM */}
-      <div className="bg-foreground flex-1 rounded-md">Sidebar Bottom</div>
+      <div className="bg-foreground flex-1 rounded-md">
+        {/* HEADER */}
+        <div className="w-full py-3">
+          {/* HEADER TOP */}
+          <div className="flex items-stretch justify-between px-4 pb-5">
+            <button className="flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2">
+              <LibraryIcon width={24} height={24} />
+              <span className="capitalize text-[15px] font-semibold tracking-tight">
+                your library
+              </span>
+            </button>
+
+            <div className="flex items-center gap-2">
+              <button className="text-secondary-text hover:bg-foreground-light flex items-center justify-center p-1 rounded-full hover:text-primary-text transition duration-300">
+                <GoPlus size={24} />
+              </button>
+              <button className="text-secondary-text hover:bg-foreground-light flex items-center justify-center p-1 rounded-full hover:text-primary-text transition duration-300">
+                <GoArrowRight size={24} />
+              </button>
+            </div>
+          </div>
+          <nav className="flex items-center gap-2 px-3">
+            <button className="px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium">
+              Playlists
+            </button>
+            <button className="px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium">
+              Artists
+            </button>
+            <button className="px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium">
+              Albums
+            </button>
+          </nav>
+        </div>
+        {/* PLAYLISTS */}
+        <div></div>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,8 @@
 :root {
   --bg-color: #000000;
   --foreground-color: #121212;
-  --foreground-light-color: #333333;
+  --foreground-light-color: #1c1c1c;
+  --foreground-lighter-color: #2a2a2a;
   --primary-text-color: #fff;
   --secondary-text-color: #b3b3b3;
   --accent-color: #1ed760;

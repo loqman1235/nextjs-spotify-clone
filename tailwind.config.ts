@@ -12,6 +12,7 @@ const config: Config = {
         background: "var(--bg-color)",
         foreground: "var(--foreground-color)",
         "foreground-light": "var(--foreground-light-color)",
+        "foreground-lighter": "var(--foreground-lighter-color)",
         accent: "var(--accent-color)",
         "primary-text": "var(--primary-text-color)",
         "secondary-text": "var(--secondary-text-color)",
