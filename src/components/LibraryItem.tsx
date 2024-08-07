@@ -22,7 +22,7 @@ const LibraryItem = ({
         <Image src={thumbnail} alt={name} width={48} height={48} />
       </div>
       <div>
-        <h4 className="tracking-tight capitalize text-[15px]">{name}</h4>
+        <h4 className="capitalize text-[15px]">{name}</h4>
         <p className="text-sm text-secondary-text capitalize">{type}</p>
       </div>
     </Link>
