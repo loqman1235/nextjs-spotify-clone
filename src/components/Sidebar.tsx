@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HomeIcon, SearchIcon } from "./icons/Icons";
+import { HomeIcon, SearchIcon } from "@/components/icons";
 
 const links = [
   { text: "Home", href: "/", icon: HomeIcon },
@@ -16,12 +16,10 @@ const links = [
 const Sidebar = () => {
   const currentPath = usePathname();
 
-  console.log(currentPath);
-
   return (
-    <div className="w-[280px] h-full flex flex-col gap-2">
+    <div className="w-[314px] h-full flex flex-col gap-2">
       {/* SIDEBAR TOP */}
-      <div className="bg-foreground p-3 rounded-md">
+      <div className="bg-foreground p-3 rounded-lg">
         <ul>
           {links.map((link) => (
             <li key={link.text} className="p-3">
@@ -34,7 +32,7 @@ const Sidebar = () => {
                 }`}
               >
                 <span className={`text-3xl`}>
-                  <link.icon width={24} />
+                  <link.icon width={24} height={24} />
                 </span>
                 <span className="text-[15px] font-semibold tracking-tight">
                   {link.text}
