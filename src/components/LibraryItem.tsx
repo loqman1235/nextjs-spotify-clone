@@ -1,15 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type LibraryItemProps = {
   type: "album" | "artist" | "playlist";
-  icon?: React.ReactNode;
-  thumbnail?: string;
+  thumbnail: string;
   name: string;
 };
 
 const LibraryItem = ({
   type = "playlist",
-  icon,
   thumbnail,
   name,
 }: LibraryItemProps) => {
@@ -19,10 +18,12 @@ const LibraryItem = ({
       className="flex items-center gap-4 px-2.5 py-2 rounded-md hover:bg-foreground-light transition duration-300 hover:shadow-md"
     >
       {/* COVER | ICON | AVATAR */}
-      <div className="w-12 h-12 rounded-md overflow-hidden bg-foreground-lighter"></div>
+      <div className="w-12 h-12 rounded-md overflow-hidden bg-foreground-lighter">
+        <Image src={thumbnail} alt={name} width={48} height={48} />
+      </div>
       <div>
         <h4 className="tracking-tight capitalize text-[15px]">{name}</h4>
-        <p className="text-sm text-secondary-text">Playlist</p>
+        <p className="text-sm text-secondary-text capitalize">{type}</p>
       </div>
     </Link>
   );

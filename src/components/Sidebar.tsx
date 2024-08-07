@@ -81,9 +81,9 @@ const Sidebar = () => {
           </nav>
         </div>
         {/* LIBRARY */}
-        <div className="w-full">
+        <div className="w-full ">
           {/* HEADER */}
-          <div className="flex items-center justify-between px-5">
+          <div className="flex items-center justify-between px-5 py-2">
             <button className="text-secondary-text hover:bg-foreground-lighter flex items-center justify-center p-1.5 rounded-full hover:text-primary-text transition duration-300">
               <GoSearch size={20} />
             </button>
@@ -97,9 +97,21 @@ const Sidebar = () => {
 
           {/* LIBRARY ITEMS */}
           <div className="w-full px-2.5">
-            <LibraryItem name="liked songs" type="playlist" />
-            <LibraryItem name="your episodes" type="playlist" />
-            <LibraryItem name="chill songs" type="playlist" />
+            <LibraryItem
+              name="liked songs"
+              type="playlist"
+              thumbnail="/images/liked.png"
+            />
+            <LibraryItem
+              name="your episodes"
+              type="playlist"
+              thumbnail="/images/episodes.png"
+            />
+            <LibraryItem
+              name="WE DONT TRUST YOU"
+              type="album"
+              thumbnail="/images/album1.jpg"
+            />
           </div>
         </div>
       </div>
