@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HomeIcon, LibraryIcon, SearchIcon } from "@/components/icons";
-import { GoArrowRight, GoPlus } from "react-icons/go";
+import {
+  GoArrowRight,
+  GoListUnordered,
+  GoPlus,
+  GoSearch,
+} from "react-icons/go";
+import LibraryItem from "./LibraryItem";
 
 const links = [
   { text: "home", href: "/", icon: HomeIcon },
@@ -13,6 +19,9 @@ const links = [
     icon: SearchIcon,
   },
 ] as const;
+
+const navBtnStyles =
+  "px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium hover:bg-foreground-lighter-hover transition duration-300";
 
 const Sidebar = () => {
   const currentPath = usePathname();
@@ -65,20 +74,34 @@ const Sidebar = () => {
               </button>
             </div>
           </div>
-          <nav className="flex items-center gap-2 px-3">
-            <button className="px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium">
-              Playlists
-            </button>
-            <button className="px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium">
-              Artists
-            </button>
-            <button className="px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium">
-              Albums
-            </button>
+          <nav className="flex items-center gap-2 px-5">
+            <button className={navBtnStyles}>Playlists</button>
+            <button className={navBtnStyles}>Artists</button>
+            <button className={navBtnStyles}>Albums</button>
           </nav>
         </div>
-        {/* PLAYLISTS */}
-        <div></div>
+        {/* LIBRARY */}
+        <div className="w-full">
+          {/* HEADER */}
+          <div className="flex items-center justify-between px-5">
+            <button className="text-secondary-text hover:bg-foreground-lighter flex items-center justify-center p-1.5 rounded-full hover:text-primary-text transition duration-300">
+              <GoSearch size={20} />
+            </button>
+
+            {/* FILTER */}
+            <button className="flex items-center gap-1 text-sm text-secondary-text hover:text-primary-text hover:scale-105 transition duration-200 pr-1">
+              <span>Recent</span>
+              <GoListUnordered size={20} />
+            </button>
+          </div>
+
+          {/* LIBRARY ITEMS */}
+          <div className="w-full px-2.5">
+            <LibraryItem name="liked songs" type="playlist" />
+            <LibraryItem name="your episodes" type="playlist" />
+            <LibraryItem name="chill songs" type="playlist" />
+          </div>
+        </div>
       </div>
     </div>
   );
