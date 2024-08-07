@@ -19,7 +19,13 @@ const LibraryItem = ({
     >
       {/* COVER | ICON | AVATAR */}
       <div className="w-12 h-12 rounded-md overflow-hidden bg-foreground-lighter">
-        <Image src={thumbnail} alt={name} width={48} height={48} />
+        <Image
+          src={thumbnail}
+          alt={name}
+          width={48}
+          height={48}
+          objectFit="cover"
+        />
       </div>
       <div>
         <h4 className="capitalize text-[15px]">{name}</h4>

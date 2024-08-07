@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { HomeIcon, LibraryIcon, SearchIcon } from "@/components/icons";
 import {
   GoArrowRight,
+  GoHome,
+  GoHomeFill,
   GoListUnordered,
   GoPlus,
   GoSearch,
@@ -12,11 +14,12 @@ import {
 import LibraryItem from "./LibraryItem";
 
 const links = [
-  { text: "home", href: "/", icon: HomeIcon },
+  { text: "home", href: "/", icon: GoHome, activeIcon: GoHomeFill },
   {
     text: "search",
     href: "/search",
-    icon: SearchIcon,
+    icon: GoSearch,
+    activeIcon: GoSearch,
   },
 ] as const;
 
@@ -42,7 +45,11 @@ const Sidebar = () => {
                 }`}
               >
                 <span className={`text-3xl`}>
-                  <link.icon width={24} height={24} />
+                  {currentPath === link.href ? (
+                    <link.activeIcon size={24} />
+                  ) : (
+                    <link.icon size={24} />
+                  )}
                 </span>
                 <span className="capitalize text-[15px] font-semibold tracking-tight">
                   {link.text}
