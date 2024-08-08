@@ -22,17 +22,25 @@ const links = [
   },
 ] as const;
 
+type SidebarProps = {
+  sidebarWidth: number;
+};
+
 const navBtnStyles =
   "px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium hover:bg-foreground-lighter-hover transition duration-300 ";
 
-const Sidebar = forwardRef<HTMLDivElement>(
-  (props, ref: Ref<HTMLDivElement>) => {
+const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
+  ({ sidebarWidth }, ref: Ref<HTMLDivElement>) => {
     const currentPath = usePathname();
+    const isCollapsed = sidebarWidth <= 80;
+
+    console.log(isCollapsed, "isCollapsed");
 
     return (
       <div
         ref={ref}
-        className="w-[314px] h-full flex flex-col gap-2 transition-[width] select-none"
+        className="h-full flex flex-col gap-2 transition-[width] select-none overflow-hidden"
+        style={{ width: `${sidebarWidth}px` }}
       >
         {/* SIDEBAR TOP */}
         <div className="bg-foreground p-3 rounded-lg">
@@ -54,7 +62,11 @@ const Sidebar = forwardRef<HTMLDivElement>(
                       <link.icon size={24} />
                     )}
                   </span>
-                  <span className="capitalize text-[15px] font-semibold tracking-tight">
+                  <span
+                    className={`capitalize text-[15px] font-semibold tracking-tight transition duration-300 ${
+                      isCollapsed && "translate-x-10"
+                    }`}
+                  >
                     {link.text}
                   </span>
                 </Link>
@@ -70,12 +82,20 @@ const Sidebar = forwardRef<HTMLDivElement>(
             <div className="flex items-stretch justify-between px-4 pb-5">
               <button className="flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2">
                 <LibraryIcon width={24} height={24} />
-                <span className="capitalize text-[15px] font-semibold tracking-tight">
+                <span
+                  className={`capitalize text-[15px] font-semibold tracking-tight ${
+                    isCollapsed && "hidden"
+                  }`}
+                >
                   your library
                 </span>
               </button>
 
-              <div className="flex items-center gap-2">
+              <div
+                className={`items-center gap-2 ${
+                  isCollapsed ? "hidden" : "flex"
+                }`}
+              >
                 <button className="text-secondary-text hover:bg-foreground-light flex items-center justify-center p-1 rounded-full hover:text-primary-text transition duration-300">
                   <GoPlus size={24} />
                 </button>
@@ -84,7 +104,11 @@ const Sidebar = forwardRef<HTMLDivElement>(
                 </button>
               </div>
             </div>
-            <nav className="flex items-center gap-2 px-5">
+            <nav
+              className={`items-center gap-2 px-5 ${
+                isCollapsed ? "hidden" : "flex"
+              }`}
+            >
               <button className={navBtnStyles}>Playlists</button>
               <button className={navBtnStyles}>Artists</button>
               <button className={navBtnStyles}>Albums</button>
@@ -93,7 +117,11 @@ const Sidebar = forwardRef<HTMLDivElement>(
           {/* LIBRARY */}
           <div className="w-full ">
             {/* HEADER */}
-            <div className="flex items-center justify-between px-5 py-2">
+            <div
+              className={`items-center justify-between px-5 py-2 ${
+                isCollapsed ? "hidden" : "flex"
+              }`}
+            >
               <button className="text-secondary-text hover:bg-foreground-lighter flex items-center justify-center p-1.5 rounded-full hover:text-primary-text transition duration-300">
                 <GoSearch size={20} />
               </button>
@@ -106,21 +134,36 @@ const Sidebar = forwardRef<HTMLDivElement>(
             </div>
 
             {/* LIBRARY ITEMS */}
-            <div className="w-full px-2.5">
+            <div className={`w-full  ${isCollapsed ? "px-1" : "px-2.5"}`}>
               <LibraryItem
                 name="liked songs"
                 type="playlist"
                 thumbnail="/images/liked.png"
+                isCollapsed={isCollapsed}
               />
               <LibraryItem
                 name="your episodes"
                 type="playlist"
                 thumbnail="/images/episodes.png"
+                isCollapsed={isCollapsed}
               />
               <LibraryItem
                 name="WE DONT TRUST YOU"
                 type="album"
                 thumbnail="/images/album1.jpg"
+                isCollapsed={isCollapsed}
+              />
+              <LibraryItem
+                name="WE DONT TRUST YOU"
+                type="album"
+                thumbnail="/images/album1.jpg"
+                isCollapsed={isCollapsed}
+              />
+              <LibraryItem
+                name="WE DONT TRUST YOU"
+                type="album"
+                thumbnail="/images/album1.jpg"
+                isCollapsed={isCollapsed}
               />
             </div>
           </div>

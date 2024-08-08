@@ -1,12 +1,13 @@
 "use client";
 
 import Sidebar from "@/components/Sidebar";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   const resizerRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const isResizing = useRef(false);
+  const [sidebarWidth, setSidebarWidth] = useState(314);
 
   const handleStartResizing = (e: React.MouseEvent) => {
     if (!resizerRef.current) return;
@@ -31,7 +32,7 @@ const Home = () => {
       if (newWidth > 823) newWidth = 823;
       if (newWidth < 200) newWidth = 72;
 
-      sidebarRef.current.style.width = `${newWidth}px`;
+      setSidebarWidth(newWidth);
     };
 
     const handleResizeStop = (e: MouseEvent) => {
@@ -56,7 +57,7 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen p-2 flex">
-      <Sidebar ref={sidebarRef} />
+      <Sidebar ref={sidebarRef} sidebarWidth={sidebarWidth} />
       {/* resizer */}
       <div
         onMouseDown={handleStartResizing}
