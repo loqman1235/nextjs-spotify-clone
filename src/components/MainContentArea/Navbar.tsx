@@ -9,10 +9,10 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between px-5 pt-3">
       <div className="flex items-center gap-2">
-        <button className="p-2 rounded-full bg-black/60 flex items-center justify-center text-lg">
+        <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
           <GoChevronLeft />
         </button>
-        <button className="p-2 rounded-full bg-black/60 flex items-center justify-center text-lg">
+        <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
           <GoChevronRight />
         </button>
       </div>
