@@ -11,6 +11,7 @@ const Home = () => {
   const [sidebarWidth, setSidebarWidth] = useState(314);
 
   const handleStartResizing = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (!resizerRef.current) return;
     isResizing.current = true;
 
