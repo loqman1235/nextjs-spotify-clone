@@ -33,7 +33,7 @@ const Home = () => {
       let newWidth = e.clientX;
 
       if (newWidth > 823) newWidth = 823;
-      if (newWidth < 200) newWidth = 72;
+      if (newWidth < 256) newWidth = 72;
 
       setSidebarWidth(newWidth);
     };
