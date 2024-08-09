@@ -1,6 +1,7 @@
 "use client";
 
 import { MainContentArea } from "@/components/MainContentArea";
+import Player from "@/components/Player";
 import Sidebar from "@/components/Sidebar";
 import { useEffect, useRef, useState } from "react";
 
@@ -58,17 +59,20 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen p-2 flex">
-      <Sidebar ref={sidebarRef} sidebarWidth={sidebarWidth} />
-      {/* resizer */}
-      <div
-        onMouseDown={handleStartResizing}
-        ref={resizerRef}
-        className="h-full cursor-grab px-1 py-4 flex items-center justify-center group/resizer"
-      >
-        <div className="w-px h-full bg-white/35 group-active/resizer:bg-white/70 rounded-full opacity-0 group-hover/resizer:opacity-100 transition duration-300"></div>
+    <div className="w-full h-screen">
+      <div className="w-full h-[calc(100vh-var(--player-height))] p-2 flex">
+        <Sidebar ref={sidebarRef} sidebarWidth={sidebarWidth} />
+        {/* resizer */}
+        <div
+          onMouseDown={handleStartResizing}
+          ref={resizerRef}
+          className="h-full cursor-grab px-1 py-4 flex items-center justify-center group/resizer"
+        >
+          <div className="w-px h-full bg-white/35 group-active/resizer:bg-white/70 rounded-full opacity-0 group-hover/resizer:opacity-100 transition duration-300"></div>
+        </div>
+        <MainContentArea />
       </div>
-      <MainContentArea />
+      <Player />
     </div>
   );
 };

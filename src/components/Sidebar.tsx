@@ -80,7 +80,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           </ul>
         </div>
         {/* SIDEBAR BOTTOM */}
-        <div className="bg-foreground flex-1 rounded-md">
+        <div className="bg-foreground flex-1 rounded-md overflow-hidden">
           {/* HEADER */}
           <div className="w-full py-3">
             {/* HEADER TOP */}

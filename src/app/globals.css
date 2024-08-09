@@ -11,6 +11,8 @@
   --primary-text-color: #fff;
   --secondary-text-color: #b3b3b3;
   --accent-color: #1ed760;
+
+  --player-height: 72px;
 }
 
 @layer base {
