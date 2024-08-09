@@ -1,7 +1,12 @@
 import React, { forwardRef, Ref, useImperativeHandle } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HomeIcon, LibraryIcon, SearchIcon } from "@/components/icons";
+import {
+  HomeIcon,
+  LibraryIcon,
+  LibraryOutlineIcon,
+  SearchIcon,
+} from "@/components/icons";
 import {
   GoArrowRight,
   GoHome,
@@ -79,9 +84,17 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           {/* HEADER */}
           <div className="w-full py-3">
             {/* HEADER TOP */}
-            <div className="flex items-stretch justify-between px-4 pb-5">
+            <div
+              className={`flex items-center justify-between px-4 ${
+                isCollapsed ? "!pb-1" : "pb-5"
+              }`}
+            >
               <button className="flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2">
-                <LibraryIcon width={24} height={24} />
+                {isCollapsed ? (
+                  <LibraryOutlineIcon width={24} height={24} />
+                ) : (
+                  <LibraryIcon width={24} height={24} />
+                )}
                 <span
                   className={`capitalize text-[15px] font-semibold tracking-tight ${
                     isCollapsed && "hidden"

@@ -1,5 +1,6 @@
 "use client";
 
+import { MainContentArea } from "@/components/MainContentArea";
 import Sidebar from "@/components/Sidebar";
 import { useEffect, useRef, useState } from "react";
 
@@ -66,7 +67,7 @@ const Home = () => {
       >
         <div className="w-px h-full bg-white/35 group-active/resizer:bg-white/70 rounded-full opacity-0 group-hover/resizer:opacity-100 transition duration-300"></div>
       </div>
-      <div className="flex-grow bg-foreground rounded-md select-none"></div>
+      <MainContentArea />
     </div>
   );
 };
