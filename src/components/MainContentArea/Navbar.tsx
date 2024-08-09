@@ -7,7 +7,7 @@ import {
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between px-5 pt-3">
+    <div className="flex items-center justify-between px-5 pt-3 mb-5">
       <div className="flex items-center gap-2">
         <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
           <GoChevronLeft />

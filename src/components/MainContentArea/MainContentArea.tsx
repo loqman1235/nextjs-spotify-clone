@@ -1,3 +1,5 @@
+import { playlists } from "@/data/data";
+import FeaturedItem from "./FeaturedItem";
 import Navbar from "./Navbar";
 
 const MainContentArea = () => {
@@ -7,6 +9,15 @@ const MainContentArea = () => {
         {/* NAVBAR */}
         <Navbar />
         {/* FEATURED CONTENT */}
+        <div className="w-full px-5 flex gap-2 flex-wrap">
+          {playlists.map((playlist) => (
+            <FeaturedItem
+              key={playlist.id}
+              title={playlist.title}
+              thumbnail={playlist.thumbnail}
+            />
+          ))}
+        </div>
       </div>
       {/* FILTER */}
       {/* RECOMMENDATIONS */}
