@@ -19,9 +19,9 @@ const FeaturedItem = ({ title, thumbnail }: FeaturedItemProps) => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex items-center w-[calc(100%-48px)] pr-2">
+      <div className="flex items-center w-[calc(100%-48px)] pr-2 relative">
         <h4 className="capitalize font-semibold text-sm flex-1">{title}</h4>
-        <button className="bg-accent text-black p-1 rounded-full items-center justify-center text-2xl shadow-md hidden group-hover/featured:flex">
+        <button className="bg-accent text-black p-1 rounded-full items-center justify-center text-2xl shadow-md hidden group-hover/featured:flex absolute right-2">
           <MdPlayArrow />
         </button>
       </div>
