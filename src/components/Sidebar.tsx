@@ -80,14 +80,14 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         {/* SIDEBAR BOTTOM */}
         <div className="bg-foreground flex-1 rounded-md overflow-hidden">
           {/* HEADER */}
-          <div className="w-full py-3">
+          <div className="w-full md:py-3">
             {/* HEADER TOP */}
             <div
               className={`flex items-center justify-between px-4 ${
                 isCollapsed ? "!pb-1" : "pb-5"
               }`}
             >
-              <button className="flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2">
+              <button className="hidden md:flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2">
                 {isCollapsed ? (
                   <LibraryOutlineIcon width={24} height={24} />
                 ) : (

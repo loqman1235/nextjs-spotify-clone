@@ -70,13 +70,10 @@ const Home = () => {
       }
     };
 
-    // Initial check when the component mounts
     handleResize();
 
-    // Add event listener to update on window resize
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
