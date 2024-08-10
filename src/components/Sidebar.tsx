@@ -79,7 +79,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           </ul>
         </div>
         {/* SIDEBAR BOTTOM */}
-        <div className="bg-foreground flex-1 rounded-md overflow-hidden">
+        <div className="flex flex-col bg-foreground flex-1 rounded-md overflow-hidden">
           {/* HEADER */}
           <div className="w-full md:py-3">
             {/* HEADER TOP */}
@@ -130,7 +130,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
             </nav>
           </div>
           {/* LIBRARY */}
-          <div className="w-full ">
+          <div className="w-full overflow-y-auto  flex-1 custom-scrollbar ">
             {/* HEADER */}
             <div
               className={`items-center justify-between px-5 py-2 ${
@@ -160,12 +160,6 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                 name="your episodes"
                 type="playlist"
                 thumbnail="/images/episodes.png"
-                isCollapsed={isCollapsed}
-              />
-              <LibraryItem
-                name="WE DONT TRUST YOU"
-                type="album"
-                thumbnail="/images/album1.jpg"
                 isCollapsed={isCollapsed}
               />
               <LibraryItem

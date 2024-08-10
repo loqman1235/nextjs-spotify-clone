@@ -23,7 +23,7 @@ const LibraryItem = ({
     >
       {/* COVER | ICON | AVATAR */}
       <div
-        className={`flex items-center h-12 rounded-md overflow-hidden bg-foreground-lighter ${
+        className={`flex items-center aspect-square rounded-md overflow-hidden bg-foreground-lighter ${
           isCollapsed ? "w-full" : "w-12"
         }`}
       >
