@@ -10,6 +10,7 @@ const Home = () => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const isResizing = useRef(false);
   const [sidebarWidth, setSidebarWidth] = useState(314);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
 
   const handleStartResizing = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -58,15 +59,38 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSidebarWidth(72);
+        setIsMobileScreen(true);
+      } else {
+        setSidebarWidth(314); // Default or previously set width for larger screens
+        setIsMobileScreen(false);
+      }
+    };
+
+    // Initial check when the component mounts
+    handleResize();
+
+    // Add event listener to update on window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="w-full h-screen">
-      <div className="w-full h-[calc(100vh-var(--player-height))] p-2 flex">
+      <div className="w-full h-[calc(100vh-var(--player-height))] p-2 flex gap-2 md:gap-0">
         <Sidebar ref={sidebarRef} sidebarWidth={sidebarWidth} />
         {/* resizer */}
         <div
           onMouseDown={handleStartResizing}
           ref={resizerRef}
-          className="h-full cursor-grab px-1 py-4 flex items-center justify-center group/resizer"
+          className="hidden md:flex h-full cursor-grab px-1 py-4  items-center justify-center group/resizer"
         >
           <div className="w-px h-full bg-white/35 group-active/resizer:bg-white/70 rounded-full opacity-0 group-hover/resizer:opacity-100 transition duration-300"></div>
         </div>

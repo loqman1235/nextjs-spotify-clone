@@ -8,7 +8,7 @@ type FeaturedItemProps = {
 
 const FeaturedItem = ({ title, thumbnail }: FeaturedItemProps) => {
   return (
-    <div className=" w-[calc(50%-0.25rem)] flex gap-3 items-center rounded-md overflow-hidden bg-foreground-lighter hover:bg-foreground-lighter-hover transition duration-300 cursor-pointer shadow-md group/featured">
+    <div className="w-full md:w-[calc(50%-0.25rem)] flex gap-3 items-center rounded-md overflow-hidden bg-foreground-lighter hover:bg-foreground-lighter-hover transition duration-300 cursor-pointer shadow-md group/featured">
       {/* THUMBNAIL */}
       <div className="w-12 h-12 bg-gray-700">
         <Image

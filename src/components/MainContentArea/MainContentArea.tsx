@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 const MainContentArea = () => {
   return (
-    <div className="w-[calc(100%-80px)] md:w-auto flex-grow bg-foreground rounded-md select-none overflow-y-auto">
+    <div className="w-[calc(100%-72px)] md:w-auto flex-grow bg-foreground rounded-md select-none overflow-y-auto">
       <div className="sticky top-0 w-full bg-gradient-to-b from-foreground-lighter to-foreground pb-5 px-5 pt-3">
         {/* NAVBAR */}
         <Navbar />

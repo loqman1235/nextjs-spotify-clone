@@ -39,8 +39,6 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
     const currentPath = usePathname();
     const isCollapsed = sidebarWidth <= 80;
 
-    console.log(isCollapsed, "isCollapsed");
-
     return (
       <div
         ref={ref}
