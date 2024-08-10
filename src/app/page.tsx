@@ -59,6 +59,7 @@ const Home = () => {
     };
   }, []);
 
+  // On mobile screens, set the sidebar width to 72px instead of 314px
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
