@@ -29,13 +29,14 @@ const links = [
 
 type SidebarProps = {
   sidebarWidth: number;
+  toggleExpandSidebar: () => void;
 };
 
 const navBtnStyles =
   "px-3 py-1.5 shadow-md rounded-full bg-foreground-lighter flex items-center justify-center text-[13px] font-medium hover:bg-foreground-lighter-hover transition duration-300 ";
 
 const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
-  ({ sidebarWidth }, ref: Ref<HTMLDivElement>) => {
+  ({ sidebarWidth, toggleExpandSidebar }, ref: Ref<HTMLDivElement>) => {
     const currentPath = usePathname();
     const isCollapsed = sidebarWidth <= 80;
 
@@ -87,7 +88,10 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                 isCollapsed ? "!pb-1" : "pb-5"
               }`}
             >
-              <button className="hidden md:flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2">
+              <button
+                className="hidden md:flex items-center gap-3 text-secondary-text hover:text-primary-text transition duration-300 pl-2"
+                onClick={toggleExpandSidebar}
+              >
                 {isCollapsed ? (
                   <LibraryOutlineIcon width={24} height={24} />
                 ) : (

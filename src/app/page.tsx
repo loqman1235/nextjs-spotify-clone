@@ -21,6 +21,15 @@ const Home = () => {
     document.body.style.cursor = "grabbing";
   };
 
+  const toggleExpandSidebar = () => {
+    if (!sidebarRef.current) return;
+    if (sidebarWidth === 314) {
+      setSidebarWidth(66);
+    } else {
+      setSidebarWidth(314);
+    }
+  };
+
   useEffect(() => {
     const handleResizing = (e: MouseEvent) => {
       if (!isResizing.current || !resizerRef.current || !sidebarRef.current)
@@ -83,7 +92,11 @@ const Home = () => {
   return (
     <div className="w-full h-screen">
       <div className="w-full h-[calc(100vh-var(--player-height))] p-2 flex gap-2 md:gap-0">
-        <Sidebar ref={sidebarRef} sidebarWidth={sidebarWidth} />
+        <Sidebar
+          ref={sidebarRef}
+          sidebarWidth={sidebarWidth}
+          toggleExpandSidebar={toggleExpandSidebar}
+        />
         {/* resizer */}
         <div
           onMouseDown={handleStartResizing}
