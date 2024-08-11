@@ -21,18 +21,23 @@
   }
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 12px;
+/* Ensure the scrollbar thumb fills the scrollbar width */
+.os-theme-dark .os-scrollbar-handle {
+  background-color: rgba(255, 255, 255, 0.2); /* Set the thumb color */
+  width: 100%; /* Ensure the thumb fills the scrollbar width */
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: transparent;
+/* Hover effect on the scrollbar thumb */
+.os-theme-dark .os-scrollbar-handle:hover {
+  background-color: rgba(255, 255, 255, 0.4); /* Change color on hover */
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
+.os-scrollbar-handle {
+  width: 12px !important;
+  border-radius: 0 !important;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+.os-theme-dark,
+.os-theme-light {
+  --os-padding-perpendicular: 0px !important;
 }

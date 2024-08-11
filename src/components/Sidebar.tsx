@@ -16,6 +16,8 @@ import {
   GoSearch,
 } from "react-icons/go";
 import LibraryItem from "./LibraryItem";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import "overlayscrollbars/overlayscrollbars.css";
 
 const links = [
   { text: "home", href: "/", icon: GoHome, activeIcon: GoHomeFill },
@@ -79,7 +81,10 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           </ul>
         </div>
         {/* SIDEBAR BOTTOM */}
-        <div className="flex flex-col bg-foreground flex-1 rounded-md overflow-hidden">
+        <div
+          id="sidebarBottom"
+          className="flex flex-col bg-foreground flex-1 rounded-md overflow-hidden"
+        >
           {/* HEADER */}
           <div className="w-full md:py-3">
             {/* HEADER TOP */}
@@ -130,7 +135,12 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
             </nav>
           </div>
           {/* LIBRARY */}
-          <div className="w-full overflow-y-auto  flex-1 custom-scrollbar ">
+          <OverlayScrollbarsComponent
+            defer
+            // options={{
+            //   scrollbars: { autoHide: "leave" },
+            // }}
+          >
             {/* HEADER */}
             <div
               className={`items-center justify-between px-5 py-2 ${
@@ -174,8 +184,26 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                 thumbnail="/images/album1.jpg"
                 isCollapsed={isCollapsed}
               />
+              <LibraryItem
+                name="WE DONT TRUST YOU"
+                type="album"
+                thumbnail="/images/album1.jpg"
+                isCollapsed={isCollapsed}
+              />
+              <LibraryItem
+                name="WE DONT TRUST YOU"
+                type="album"
+                thumbnail="/images/album1.jpg"
+                isCollapsed={isCollapsed}
+              />
+              <LibraryItem
+                name="WE DONT TRUST YOU"
+                type="album"
+                thumbnail="/images/album1.jpg"
+                isCollapsed={isCollapsed}
+              />
             </div>
-          </div>
+          </OverlayScrollbarsComponent>
         </div>
       </div>
     );
