@@ -137,9 +137,9 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           {/* LIBRARY */}
           <OverlayScrollbarsComponent
             defer
-            // options={{
-            //   scrollbars: { autoHide: "leave" },
-            // }}
+            options={{
+              scrollbars: { autoHide: "leave" },
+            }}
           >
             {/* HEADER */}
             <div
