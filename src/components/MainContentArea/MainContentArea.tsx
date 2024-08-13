@@ -2,10 +2,16 @@ import { playlists, recentlyPlayed } from "@/data/data";
 import FeaturedItem from "./FeaturedItem";
 import Navbar from "./Navbar";
 import { Collection } from "../Collection";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import "overlayscrollbars/overlayscrollbars.css";
 
 const MainContentArea = () => {
   return (
-    <div className="w-[calc(100%-72px)] md:w-auto flex-grow bg-foreground rounded-md select-none overflow-y-auto">
+    // <div className="w-[calc(100%-72px)] md:w-auto flex-grow bg-foreground rounded-md select-none overflow-y-auto">
+    <OverlayScrollbarsComponent
+      options={{ scrollbars: { autoHide: "leave" } }}
+      className="w-[calc(100%-72px)] md:w-auto flex-grow bg-foreground rounded-md select-none over"
+    >
       <div className="z-50 sticky top-0 w-full bg-gradient-to-b from-foreground-lighter to-foreground pb-5 px-5 pt-3">
         {/* NAVBAR */}
         <Navbar />
@@ -45,7 +51,8 @@ const MainContentArea = () => {
         <Collection items={recentlyPlayed.items} title={recentlyPlayed.title} />
         <Collection items={recentlyPlayed.items} title={recentlyPlayed.title} />
       </div>
-    </div>
+    </OverlayScrollbarsComponent>
+    // </div>
   );
 };
 

@@ -23,13 +23,17 @@
 
 /* Ensure the scrollbar thumb fills the scrollbar width */
 .os-theme-dark .os-scrollbar-handle {
-  background-color: rgba(255, 255, 255, 0.2); /* Set the thumb color */
+  background-color: rgba(255, 255, 255, 0.3); /* Set the thumb color */
   width: 100%; /* Ensure the thumb fills the scrollbar width */
 }
 
 /* Hover effect on the scrollbar thumb */
 .os-theme-dark .os-scrollbar-handle:hover {
-  background-color: rgba(255, 255, 255, 0.4); /* Change color on hover */
+  background-color: rgba(255, 255, 255, 0.5); /* Change color on hover */
+}
+
+.os-theme-dark .os-scrollbar-handle:active {
+  background-color: rgba(255, 255, 255, 0.7); /* Change color on hover */
 }
 
 .os-scrollbar-handle {
@@ -40,4 +44,5 @@
 .os-theme-dark,
 .os-theme-light {
   --os-padding-perpendicular: 0px !important;
+  --os-padding-axis: 0px !important;
 }
