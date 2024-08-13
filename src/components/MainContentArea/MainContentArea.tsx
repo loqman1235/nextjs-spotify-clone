@@ -23,7 +23,13 @@ const MainContentArea = () => {
         </div>
       </div>
       {/* FEATURED CONTENT */}
-      <div className="w-full px-5 flex gap-2 flex-wrap pt-5">
+      <div
+        className="w-full px-5 gap-2 pt-5 pb-16"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        }}
+      >
         {playlists.map((playlist) => (
           <FeaturedItem
             key={playlist.id}
@@ -34,6 +40,9 @@ const MainContentArea = () => {
       </div>
       {/* RECOMMENDATIONS */}
       <div className="w-full">
+        <Collection items={recentlyPlayed.items} title={recentlyPlayed.title} />
+        <Collection items={recentlyPlayed.items} title={recentlyPlayed.title} />
+        <Collection items={recentlyPlayed.items} title={recentlyPlayed.title} />
         <Collection items={recentlyPlayed.items} title={recentlyPlayed.title} />
       </div>
     </div>

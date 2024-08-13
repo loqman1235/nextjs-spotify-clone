@@ -8,7 +8,7 @@ type CollectionProps = {
 
 const Collection = ({ title, items }: CollectionProps) => {
   return (
-    <div className="w-full py-16">
+    <div className="w-full pb-16">
       {/* HEADER */}
       <div className="flex items-center justify-between px-5 mb-5">
         <h2 className="text-xl font-bold">Recently played</h2>
