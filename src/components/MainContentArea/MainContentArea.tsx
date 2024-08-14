@@ -2,17 +2,59 @@ import { playlists, recentlyPlayed } from "@/data/data";
 import FeaturedItem from "./FeaturedItem";
 import Navbar from "./Navbar";
 import { Collection } from "../Collection";
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import {
+  OverlayScrollbarsComponent,
+  OverlayScrollbarsComponentRef,
+} from "overlayscrollbars-react";
 import "overlayscrollbars/overlayscrollbars.css";
+import { useEffect, useRef, useState } from "react";
 
 const MainContentArea = () => {
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const mainContentRef = useRef<OverlayScrollbarsComponentRef<"div"> | null>(
+    null
+  );
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const osInstance = mainContentRef.current?.osInstance();
+
+    if (osInstance) {
+      const handleScroll = () => {
+        const scrollY = osInstance?.elements().viewport.scrollTop;
+        if (scrollY > 80) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+
+      osInstance?.elements().viewport.addEventListener("scroll", handleScroll);
+
+      return () => {
+        osInstance
+          ?.elements()
+          .viewport.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
     // <div className="w-[calc(100%-72px)] md:w-auto flex-grow bg-foreground rounded-md select-none overflow-y-auto">
     <OverlayScrollbarsComponent
-      options={{ scrollbars: { autoHide: "leave" } }}
+      ref={mainContentRef}
+      options={{ scrollbars: { autoHide: "leave", autoHideDelay: 800 } }}
       className="w-[calc(100%-72px)] md:w-auto flex-grow bg-foreground rounded-md select-none over"
     >
-      <div className="z-50 sticky top-0 w-full bg-gradient-to-b from-foreground-lighter to-foreground pb-5 px-5 pt-3">
+      {/* HEADER START */}
+      <div
+        ref={headerRef}
+        className={`z-50 sticky top-0 w-full pb-5 px-5 pt-3 ${
+          isScrolled
+            ? "bg-foreground"
+            : "bg-gradient-to-b from-foreground-lighter to-foreground"
+        }`}
+      >
         {/* NAVBAR */}
         <Navbar />
         {/* Filters */}
@@ -28,6 +70,8 @@ const MainContentArea = () => {
           </button>
         </div>
       </div>
+      {/* HEADER END */}
+
       {/* FEATURED CONTENT */}
       <div
         className="w-full px-5 gap-2 pt-5 pb-16"
