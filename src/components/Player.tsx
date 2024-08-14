@@ -7,6 +7,7 @@ import {
   MdShuffle,
   MdSkipNext,
   MdSkipPrevious,
+  MdVolumeUp,
 } from "react-icons/md";
 
 const Player = () => {
@@ -41,7 +42,7 @@ const Player = () => {
         </button>
       </div>
       {/* PLAYER CONTROLS */}
-      <div className="flex-1 space-x-5 flex items-center justify-center flex-col w-full gap-2">
+      <div className="flex-1 space-x-5 flex items-center justify-center flex-col w-full gap-3">
         <div className="flex items-center justify-center gap-5 text-2xl w-full">
           <button className="text-secondary-text hover:text-primary-text transition duration-300 hover:scale-105">
             <MdShuffle />
@@ -59,17 +60,39 @@ const Player = () => {
             <MdRepeat />
           </button>
         </div>
-        <div className="flex items-center w-[90%] md:w-1/2 justify-center gap-2">
-          <span className="text-xs text-secondary-text">00:00</span>
-          {/* PLAYER SLIDER */}
-          <div className="w-full bg-foreground-lighter h-1 rounded-full relative overflow-hidden">
-            <div className="absolute left-0 w-1/2 h-full bg-white rounded-full"></div>
+        <div className="flex justify-center gap-5 items-center w-[90%]">
+          <div className="w-full md:w-1/2 flex items-center gap-2">
+            <span className="text-xs text-secondary-text">00:00</span>
+            {/* PLAYER SLIDER */}
+            <div className="w-full bg-foreground-lighter h-1 rounded-full relative overflow-hidden">
+              <div className="absolute left-0 w-1/2 h-full bg-white rounded-full"></div>
+            </div>
+            <span className="text-xs text-secondary-text">00:00</span>
           </div>
-          <span className="text-xs text-secondary-text">00:00</span>
+          <div className="flex items-center gap-2 md:hidden">
+            <button className="text-2xl text-secondary-text hover:text-primary-text transition duration-300">
+              <MdVolumeUp />
+            </button>
+            {/* VOLUME PROGRESS BAR */}
+            <div className="w-[50px] bg-foreground-lighter h-1 rounded-full relative overflow-hidden">
+              <div className="absolute left-0 w-1/2 h-full bg-white rounded-full"></div>
+            </div>
+          </div>
         </div>
       </div>
       {/* RIGHT SECTION  */}
-      <div className="hidden md:flex">Volume here</div>
+      <div className="hidden md:flex ">
+        {/* VOLUME CONTROL */}
+        <div className="flex items-center gap-2">
+          <button className="text-2xl text-secondary-text hover:text-primary-text transition duration-300">
+            <MdVolumeUp />
+          </button>
+          {/* VOLUME PROGRESS BAR */}
+          <div className="w-[100px] bg-foreground-lighter h-1 rounded-full relative overflow-hidden">
+            <div className="absolute left-0 w-1/2 h-full bg-white rounded-full"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
