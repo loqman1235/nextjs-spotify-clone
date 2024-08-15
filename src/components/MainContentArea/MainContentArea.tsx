@@ -1,8 +1,6 @@
 import { playlists, recentlyPlayed } from "@/data/data";
 import FeaturedItem from "./FeaturedItem";
-import Navbar from "./Navbar";
 import { Collection } from "../Collection";
-import { useEffect, useRef, useState } from "react";
 
 const MainContentArea = () => {
   return (
