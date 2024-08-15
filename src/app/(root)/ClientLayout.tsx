@@ -9,6 +9,7 @@ import {
 } from "overlayscrollbars-react";
 import "overlayscrollbars/overlayscrollbars.css";
 import Navbar from "@/components/MainContentArea/Navbar";
+import { usePathname } from "next/navigation";
 
 const ClientLayout = ({
   children,
@@ -26,6 +27,7 @@ const ClientLayout = ({
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const osInstance = mainContentRef.current?.osInstance();
@@ -154,7 +156,7 @@ const ClientLayout = ({
           <div
             ref={headerRef}
             className={`z-50 sticky top-0 w-full pb-5 px-5 pt-3 ${
-              isScrolled
+              isScrolled || pathname !== "/"
                 ? "bg-foreground"
                 : "bg-gradient-to-b from-foreground-lighter to-foreground"
             }`}

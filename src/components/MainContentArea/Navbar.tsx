@@ -1,3 +1,4 @@
+import { usePathname } from "next/navigation";
 import {
   GoBell,
   GoChevronLeft,
@@ -6,15 +7,33 @@ import {
 } from "react-icons/go";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <div className="flex items-center justify-between mb-5">
       <div className="flex items-center gap-2">
-        <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
-          <GoChevronLeft />
-        </button>
-        <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
-          <GoChevronRight />
-        </button>
+        <div className="flex items-center gap-2">
+          <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
+            <GoChevronLeft />
+          </button>
+          <button className="p-2 rounded-full bg-black/30 text-secondary-text flex items-center justify-center text-lg cursor-not-allowed">
+            <GoChevronRight />
+          </button>
+        </div>
+        {/* SEARCH BAR */}
+        {pathname === "/search" &&
+          // <form>
+          //   <div className="relative">
+          //     <input
+          //       className="p-5 rounded-full bg-foreground-lighter"
+          //       type="text"
+          //       name=""
+          //       id=""
+          //       placeholder="What do you want to play?"
+          //     />
+          //   </div>
+          // </form>
+          "Search bar"}
       </div>
 
       <div className="flex items-center gap-2">

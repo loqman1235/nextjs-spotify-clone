@@ -27,7 +27,7 @@ const CollectionCard = ({
         </button>
       </div>
       <div>
-        <p className="font-medium">{title}</p>
+        <h3 className="font-medium text-[15px]">{title}</h3>
         <p className="text-sm text-secondary-text">{artistName}</p>
       </div>
     </Link>
